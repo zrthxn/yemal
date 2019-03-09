@@ -3,7 +3,7 @@
 
 Microsoft Cats vs Dogs challenge on Kaggle
 
-Dataset [Download!https://www.microsoft.com/en-us/download/confirmation.aspx?id=54765]
+Dataset https://www.microsoft.com/en-us/download/confirmation.aspx?id=54765
 
 Try to classify an image of a dog or a cat 
 using a CNN (Convolutional Neural Network).
