@@ -12,7 +12,7 @@ def test_directory():
         datadir = os.path.join(DATASET_DIR, category)
         for file in os.listdir(datadir):
             try:
-                fileread = cv2.imread(os.path.join(datadir, file), cv2.IMREAD_GRAYSCALE)
+                fileread = cv2.imread(os.path.join(datadir, file), cv2.IMREAD_COLOR)
                 plt.imshow(fileread, cmap="gray")
                 plt.show()
             except Exception as e:
@@ -53,7 +53,6 @@ def load_training_data():
     print('Dataset read complete:', success, 'successful', failed, 'failed')
     print(len(training_data), 'images scanned')
 
-
 def save_dataset(_X, _y):
     X_pickle_out = open('Features.pickle', 'wb')
     pickle.dump(_X, X_pickle_out)
@@ -66,12 +65,11 @@ def save_dataset(_X, _y):
     X_pickle_out.close()
     y_pickle_out.close()
 
-
 F = []
 l = []
 
 def create_training_dataset():
-    # load_training_data()
+    load_training_data()
 
     # shuffle the training data randomly
     for i in range(0, random.randint(0, 5)):
@@ -135,7 +133,6 @@ model.add(Flatten())
 model.add(Dense(64))
 model.add(Activation('relu'))
 
-# Output layer
 model.add(Dense(1))
 model.add(Activation('sigmoid'))
 
@@ -145,7 +142,7 @@ model.compile(
     metrics=["accuracy"]
 )
 
-model.fit(X, y, batch_size=16, validation_split=0.1, epochs=10)
+model.fit(X, y, batch_size=32, validation_split=0.25, epochs=6)
 model.save("64x3_CNN.model")
 
 model = tf.keras.models.load_model()
@@ -155,11 +152,15 @@ def prediction_image(path):
     fileread = cv2.resize(fileread, (IMG_SIZE_X, IMG_SIZE_Y))
     return fileread.reshape(-1, IMG_SIZE_X, IMG_SIZE_Y, 1)
 
-PR_PATH = 'predict\\a.jpg'
+PR_PATH = 'predict'
 
-pr = model.predict([prediction_image(PR_PATH)])
-
-plt.imshow(cv2.imread(PR_PATH, cv2.IMREAD_COLOR))
-plt.show()
-
-print(CATEGORIES[int(pr[0][0])])
+for pred in os.listdir(PR_PATH):
+    fp = os.path.join(PR_PATH, pred)
+    print('-------------------------------------------')
+    try:
+        plt.imshow(cv2.imread(fp, cv2.IMREAD_COLOR))
+        plt.show()
+        pr = model.predict([prediction_image(fp)])
+        print(CATEGORIES[int(pr[0][0])])
+    except Exception as e:
+        pass
