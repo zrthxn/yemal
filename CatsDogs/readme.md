@@ -1,12 +1,12 @@
 ### Classifier
+
 # Cats vs Dogs
 
-Microsoft Cats vs Dogs challenge on Kaggle
-
-Dataset https://www.microsoft.com/en-us/download/confirmation.aspx?id=54765
-
+Microsoft Cats vs Dogs challenge on Kaggle.
 Try to classify an image of a dog or a cat 
-using a CNN (Convolutional Neural Network).
+using a Convolutional Neural Network.
+
+**Dataset: https://www.microsoft.com/en-us/download/confirmation.aspx?id=54765**
 
 ## Notes
 - The initial accuracy was only 0.65 due to a missing activation function after the dense layer

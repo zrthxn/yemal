@@ -1,7 +1,4 @@
 ### Recommender
 # Chatbot
 
-Try to make a chatbot using a RNN (Recursive Neural Network).
-
-## Notes
-- Note
+Try to make a chatbot using a Recursive Neural Network and LSTM functional cells from Keras.
