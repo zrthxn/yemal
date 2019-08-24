@@ -4,4 +4,8 @@
 # VS Code
 /.vscode
 
-*.pickle
+# *.pickle
+
+__data__/
+_data/
+data/

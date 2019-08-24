@@ -1,6 +1,0 @@
-matplotlib=*
-math=*
-numpy=*
-pandas=*
-quandl=*
-sklearn=*
