@@ -1,4 +1,4 @@
-## Predictor
+### Predictor
 
 # Cryptocurrency Price Predictor
 
