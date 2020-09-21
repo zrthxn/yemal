@@ -1,8 +1,5 @@
-# Jupyter Checkpoints
-*/.ipynb_checkpoints
-
-# VS Code
-/.vscode
+.ipynb_checkpoints/
+.vscode/
 
 # *.pickle
 
