@@ -10,4 +10,4 @@ tensorflow-gpu
 tensorboard
 numpy
 pandas
-tensorflow==2.0.0a0
+tensorflow==2.9.3
